@@ -47,7 +47,7 @@ public class LinKongruenz implements Zufallszahl{
 	
 	private int longToInt(long zahl) {
 		return Math.abs((int) zahl);
-		System.out.println("test1");
+		
 	}
 
 }
