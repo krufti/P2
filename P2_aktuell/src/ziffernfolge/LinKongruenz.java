@@ -31,7 +31,7 @@ public class LinKongruenz implements Zufallszahl{
 	public int naechste() {
 		
 		a = ((mult(a,b)+1) % m);				
-    	return a;
+    	return a % 100;
 		
 	}
 
