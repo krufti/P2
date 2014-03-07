@@ -40,6 +40,15 @@ public class LinKongruenz implements Zufallszahl{
 	@Override
 	public int naechste(int von, int bis) {
 		
+		if (von < 0){
+			von =0;
+		}
+		if (bis < 0){
+			bis =0;
+		}
+		if (von > bis){
+			von = bis-1;
+		}
 		bis++;		
 		a = ((mult(a,b)+1) % m);				
     	return a % (bis-von) + von;		
