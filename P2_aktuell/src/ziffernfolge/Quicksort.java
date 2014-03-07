@@ -1,5 +1,8 @@
 package ziffernfolge;
 
+import ziffernfolge.interfaces.Liste;
+import ziffernfolge.interfaces.Sortierung;
+
 public class Quicksort implements Sortierung {
 
 	@Override

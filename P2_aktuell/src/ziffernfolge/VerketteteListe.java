@@ -1,11 +1,13 @@
 package ziffernfolge;
 
+import ziffernfolge.interfaces.Liste;
+
 public class VerketteteListe implements Liste
 {
   private Knoten kopf=new Knoten();
   private Knoten ende=new Knoten();
 
-  VerketteteListe()
+  public VerketteteListe()
   { kopf.nachfolger=ende;
     kopf.vorgaenger=kopf;
     ende.nachfolger=ende;

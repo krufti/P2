@@ -6,6 +6,8 @@ import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import ziffernfolge.interfaces.Liste;
+
 /** Spielkonsole fuer das Spiel "Ziffernfolge". 
 Es besteht aus
 einem Feld von neun Ziffernfeldern, die in verschiedenen Farben

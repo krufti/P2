@@ -1,5 +1,7 @@
 package ziffernfolge;
 
+import ziffernfolge.interfaces.Zufallszahl;
+
 public class LinKongruenz implements Zufallszahl{
 		
     int a, b, m, m1, N;

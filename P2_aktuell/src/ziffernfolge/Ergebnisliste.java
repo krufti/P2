@@ -4,6 +4,9 @@
 //
 package ziffernfolge;
 
+import ziffernfolge.interfaces.Liste;
+import ziffernfolge.interfaces.Sortierung;
+
 public class Ergebnisliste {
 	
 	private Liste ergebnisliste = new VerketteteListe();

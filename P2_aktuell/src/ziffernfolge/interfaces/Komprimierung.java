@@ -1,4 +1,4 @@
-package ziffernfolge;
+package ziffernfolge.interfaces;
 
 public interface Komprimierung
 {

@@ -1,5 +1,7 @@
 package ziffernfolge;
 
+import ziffernfolge.interfaces.Komprimierung;
+
 public class Huffman implements Komprimierung{
 
 	@Override

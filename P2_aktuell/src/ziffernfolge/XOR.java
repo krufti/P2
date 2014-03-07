@@ -1,5 +1,7 @@
 package ziffernfolge;
 
+import ziffernfolge.interfaces.Kryptomethode;
+
 public class XOR implements Kryptomethode {
 
 	@Override

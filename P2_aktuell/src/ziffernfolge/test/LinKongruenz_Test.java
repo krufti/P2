@@ -1,8 +1,10 @@
-package ziffernfolge;
+package ziffernfolge.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import ziffernfolge.LinKongruenz;
 
 public class LinKongruenz_Test {
 
