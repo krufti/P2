@@ -1,6 +1,6 @@
 //
 // Autor: Sebastian Kruft
-// zuletzt geändert: 14.06.2013
+// zuletzt geändert: 13.03.2014
 //
 package ziffernfolge;
 

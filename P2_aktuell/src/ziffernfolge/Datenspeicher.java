@@ -1,7 +1,7 @@
 //
 // Autor: Sebastian Kruft
-// zuletzt geändert: 14.06.2013
-//	Todo: Krypto und Komp auf String anwenden ser Daten in string schreiben anstatt in Datei
+// zuletzt geändert: 13.03.2014
+//
 package ziffernfolge;
 
 import java.io.BufferedReader;

@@ -1,3 +1,7 @@
+//
+// Autor: Sebastian Kruft
+// zuletzt geändert: 13.03.2014
+//
 package ziffernfolge.interfaces;
 
 
