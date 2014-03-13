@@ -49,26 +49,18 @@ public class LinKongruenz implements Zufallszahl{
 			bis =0;
 		}
 		if (von > bis){
-			//von = bis-1;
-			swap(von,bis);
+			von = bis-1;
+			
 		}
 		bis++;		
 		a = ((mult(a,b)+1) % m);
 		
-		zw = ((a / m1)*101) / m1;
+		zw = ((a / m1)*(bis)) / m1;
 		
     	return zw % (bis-von) + von;	
     	
 		
 	}
-	
-	private void swap(int a, int b)
-	{
-	    int temp = a;
-	    a = b;
-	    b = temp;
-	}
-	
 	
 	private int longToInt(long zahl) {
 		return Math.abs((int) zahl);
