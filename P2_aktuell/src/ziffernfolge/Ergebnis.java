@@ -1,10 +1,12 @@
 //
 // Autor: Sebastian Kruft
-// zuletzt geändert: 14.06.2013
+// zuletzt geändert: 13.03.2014
 //
 package ziffernfolge;
 
-public class Ergebnis implements Comparable<Ergebnis>{
+import ziffernfolge.interfaces.IErgebnis;
+
+public class Ergebnis implements Comparable<Ergebnis>, IErgebnis{
 	
 	String name=null;
 	int zeit=0;
@@ -19,37 +21,8 @@ public class Ergebnis implements Comparable<Ergebnis>{
 	public Ergebnis() {
 		name = new String();
 	}
-	
-
-
-	/*
-	  
-	   @Override
-	public int compareTo(Object in) {
-		// TODO Auto-generated method stub
-		Ergebnis e = (Ergebnis)in;
-		
-		if(this.zeit == e.zeit){
-			return 0;
-		}
-		
-		
-		if(this.zeit < e.zeit){
-			return -1;
-		}else{ 
-			return 1;
-		}
-		
-		
 		
 	
-	}*/
-	
-	
-	/**
-	 * Zeilenweise Ausgabe zum leichten abspeichern
-	 * @return String mit 3 Zeilen
-	 */
 	public String toString() {
 		String temp = new String();
 		temp += name;
@@ -61,10 +34,7 @@ public class Ergebnis implements Comparable<Ergebnis>{
 		return temp;
 	}
 	
-	/**
-	 * Ausgabe zum Ausgeben geeignet
-	 * @return 'schöner' String
-	 */
+	
 	public String toShow() {
 		return name + " hat " 
 					+ new Integer(ziffernanzahl).toString() 
@@ -73,15 +43,7 @@ public class Ergebnis implements Comparable<Ergebnis>{
 					+ " erreicht";		
 	}
 	
-	/**
-	 * Vergleicht dieses Ergebnis mit übergebenen Ergebnis
-	 * -sortiert nach zifferanzahl
-	 * -dann nach benötigter zeit
-	 * viele! Ziffern gut
-	 * wenig! Zeit gut
-	 * @param o
-	 * @return Integer (1=dies ist besser, 0=beide gleich, -1=übergebenes ist besser)
-	 */
+	
 	public int compareTo(Ergebnis o) {
 		int temp = 0;
 		//Vergleiche ziffernanzahl
@@ -91,7 +53,7 @@ public class Ergebnis implements Comparable<Ergebnis>{
 			temp = -1;
 		} else {
 			//bei gleicher Anzahl Vergleich der Zeiten 
-			//wenig Zeit ist gut
+			//weniger Zeit ist gut
 			if(this.zeit>o.zeit){
 				temp = -1;
 			}else if (this.zeit<o.zeit) {

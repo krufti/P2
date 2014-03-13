@@ -16,10 +16,11 @@ import ziffernfolge.interfaces.Liste.Iterator;
 import ziffernfolge.interfaces.Komprimierung;
 import ziffernfolge.interfaces.Kryptomethode;
 import ziffernfolge.interfaces.Liste;
+import ziffernfolge.interfaces.IDatenspeicher;
 
 
 
-public class Datenspeicher {
+public class Datenspeicher implements IDatenspeicher {
 	
 	@SuppressWarnings("unused")
 	private Kryptomethode krypto = new XOR();
@@ -27,15 +28,7 @@ public class Datenspeicher {
 	@SuppressWarnings("unused")
 	private Komprimierung komp = new Huffman();
 	
-	
-	
-	/**
-	 * Funktion zum Speichern
-	 * Verwendet Krytomodul und Kompressionmodul
-	 * 
-	 * @param toSave Liste die gespeichert werden soll
-	 * @throws IOException Schreibfehler Datei schreibgeschütz? 
-	 */
+
 	public void speichere(Liste toSave) throws IOException {
 		String temp;
 		StringBuffer buffer = new StringBuffer();
@@ -58,24 +51,7 @@ public class Datenspeicher {
 		file.close();
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/**
-	 * Funktion zum Laden
-	 * Verwendet Krytomodul und Kompressionmodul
-	 * 
-	 * @return fertig geladene Liste noch nicht sortiert
-	 * @throws IOException Fehler beim laden
-	 */
+		
 	public Liste lade() throws IOException {
 		VerketteteListe nListe = new VerketteteListe();
 		String temp = new String();
@@ -121,77 +97,5 @@ public class Datenspeicher {
 
 		return nListe;
 	}
-	
-	
-	
-//	public void lade(Ergebnisliste liste){
-//		
-//		liste.start();
-//		try{ 
-//            FileReader fr = new FileReader("liste.txt");
-//            BufferedReader reader = new BufferedReader(fr);
-//            String zeile = reader.readLine();
-//            while (zeile != null) { 
-//            	
-//            	krypto.entschluesseln(zeile);
-//            	zeile = komp.expandieren(zeile);
-//            	String[] splitResult = zeile.split(";");
-//            	
-//            	liste.aktuelles_Element().name = splitResult[0];
-//            	liste.aktuelles_Element().zeit = Integer.parseInt(splitResult[1]);
-//            	liste.aktuelles_Element().ziffernanzahl = Integer.parseInt(splitResult[2]);
-//            	
-//            	liste.weiter();
-//            	
-//            }
-//            reader.close();
-//        }catch(IOException ioe){ 
-//            ioe.printStackTrace(); 
-//        } 	
-//		
-//				
-//	
-//
-//	
-//		
-//	}
-//	
-//	
-//	public void speichere(Ergebnisliste ergebnisliste){
-//		
-//		String temp_string_s, temp_name;
-//		temp_string_s = "";
-//		temp_name = "leer";
-//		
-//		ergebnisliste.start();
-//		 
-//		try{	 
-//			PrintWriter pWriter = new PrintWriter(new FileWriter("liste.txt"));
-//			
-//			while(temp_name != ergebnisliste.aktuelles_Element().name){
-//				
-//				temp_name = ergebnisliste.aktuelles_Element().name;
-//				temp_string_s = ergebnisliste.aktuelles_Element().name + ";" + ergebnisliste.aktuelles_Element().zeit + ";" + ergebnisliste.aktuelles_Element().ziffernanzahl;
-//				temp_string_s = komp.komprimieren(temp_string_s);
-//				krypto.verschluesseln(temp_string_s);
-//				pWriter.println(temp_string_s);
-//				ergebnisliste.weiter();
-//			}
-//			
-//			pWriter.close();
-//			
-//			
-//		}catch(IOException ioe){ 
-//            ioe.printStackTrace(); 
-//        } 	
-//
-//	
-//			
-//		
-//	}
-//	
-	
-	
-	
-	
+		
 }

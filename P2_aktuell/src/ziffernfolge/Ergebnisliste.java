@@ -4,60 +4,67 @@
 //
 package ziffernfolge;
 
+import java.io.IOException;
+
+import ziffernfolge.interfaces.IErgebnisliste;
 import ziffernfolge.interfaces.Liste;
 import ziffernfolge.interfaces.Sortierung;
+import ziffernfolge.interfaces.Liste.Iterator;
 
-public class Ergebnisliste {
+public class Ergebnisliste implements IErgebnisliste{
 	
-	private Liste ergebnisliste = new VerketteteListe();
+	private Liste ergL;
+	private Sortierung sort = new Einfügesortierung();
+	private Iterator ergI;
+	private Datenspeicher data = new Datenspeicher();
 	
-	private Datenspeicher datenspeicher = new Datenspeicher();
+	public Ergebnisliste() throws IOException {
+		ergL = data.lade();
+		sort.sortiere(ergL);
+		ergI = ergL.erzeuge_Iterator();
+	}
 	
-	private Sortierung sortierung = new Bubblesort();
 	
-	private Liste.Iterator i;
+	public void close() throws IOException{
+		sort.sortiere(ergL);
+		data.speichere(ergL);
+	}
 	
 	
 	public void speichere(Ergebnis in){
-		
-		ergebnisliste.fuege_ein_nach(in, i);
-		
-		sortierung.sortiere(ergebnisliste);
-		
-		//datenspeicher.speichere(ergebnisliste);
-		
-				
-	} 
-	
-	public Ergebnisliste(){
-		i = ergebnisliste.erzeuge_Iterator();
+		ergL.setze_an_Ende(in);
 	}
-	
+		
 	public void start(){
 		
-		i.anfang();
+		ergI.anfang();
 		
 	}
 	
 	public void weiter(){
 		
-		i.weiter();
+		ergI.weiter();
 		
 	}
 
 	public void ende(){
 		
-		i.ende();
+		ergI.ende();
 		
 	}
 	
 	public Ergebnis aktuelles_Element(){
 		Ergebnis ret;
 		
-		ret = (Ergebnis)i.element();
+		ret = (Ergebnis)ergI.element();
 		
 		return ret;
 	}
+	
+	
+	
+	
+	
 	
 	
 	
