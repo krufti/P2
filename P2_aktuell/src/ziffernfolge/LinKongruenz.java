@@ -41,7 +41,7 @@ public class LinKongruenz implements Zufallszahl{
 
 	@Override
 	public int naechste(int von, int bis) {
-		
+		int zw;
 		if (von < 0){
 			von =0;
 		}
@@ -49,12 +49,24 @@ public class LinKongruenz implements Zufallszahl{
 			bis =0;
 		}
 		if (von > bis){
-			von = bis-1;
+			//von = bis-1;
+			swap(von,bis);
 		}
 		bis++;		
-		a = ((mult(a,b)+1) % m);				
-    	return a % (bis-von) + von;		
+		a = ((mult(a,b)+1) % m);
 		
+		zw = ((a / m1)*101) / m1;
+		
+    	return zw % (bis-von) + von;	
+    	
+		
+	}
+	
+	private void swap(int a, int b)
+	{
+	    int temp = a;
+	    a = b;
+	    b = temp;
 	}
 	
 	
