@@ -27,8 +27,9 @@ public class LinKongruenz_Test {
 		for(int i=0; i< anz; i++){
 			
 			rand = random.naechste(von,bis);
+			
 		
-			System.out.println(rand);
+			
 			if(rand == 0){
 				zahlen[0]++;
 			}

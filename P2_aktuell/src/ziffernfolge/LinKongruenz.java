@@ -6,6 +6,7 @@ public class LinKongruenz implements Zufallszahl{
 		
     int a, b, m, m1, N;
     int x;
+    int[] vo = new int[1],bi = new int[1];
     
     public LinKongruenz(){
     	
@@ -42,25 +43,34 @@ public class LinKongruenz implements Zufallszahl{
 	@Override
 	public int naechste(int von, int bis) {
 		int zw;
-		if (von < 0){
-			von =0;
+		vo[0]=von;
+		bi[0]=bis;
+		if (vo[0] < 0){
+			vo[0] =0;
 		}
-		if (bis < 0){
-			bis =0;
+		if (bi[0] < 0){
+			bi[0] =0;
 		}
-		if (von > bis){
-			von = bis-1;
+		if (vo[0] > bi[0]){
 			
+			swap(vo,bi);
 		}
-		bis++;		
+		
+		bi[0]++;		
 		a = ((mult(a,b)+1) % m);
 		
-		zw = ((a / m1)*(bis)) / m1;
+		zw = ((a / m1)*(bi[0])) / m1;
 		
-    	return zw % (bis-von) + von;	
+    	return zw % (bi[0]-vo[0]) + vo[0];	
     	
 		
 	}
+	
+	public static void swap(int[] a, int[] b) {
+	    int t = a[0]; a[0] = b[0]; b[0] = t;
+	}
+	
+
 	
 	private int longToInt(long zahl) {
 		return Math.abs((int) zahl);
